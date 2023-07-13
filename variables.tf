@@ -49,9 +49,10 @@ variable do_size {
 
 variable do_ssh_key {
 	type = string
-	default = "MySSHKey"
+	default = "www-1"
 }
 
 variable ssh_private_key {
 	type = string
 }
+
