@@ -7,7 +7,7 @@ resource "docker_image" "bgg-backend" {
 	name = "chukmunlee/bgg-backend:${var.backend_version}"
 }
 
-resource "docker_network" "bgg-network" {
+resource "docker_network" "bgg-net" {
 	name = "${var.app_namespace}-bgg-net"
 }
 
@@ -36,7 +36,7 @@ resource "docker_container" "bgg-database"{
 }
 
 resource "docker_container" "bgg-backend"{
-	count. var.backend_instance_count
+	count.var.backend_instance_count
 	name = "${var.app_namespace}-bgg-backend-${count.index}"
 	image = docker_image.bgg-backend.image_id
 
